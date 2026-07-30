@@ -1,0 +1,21 @@
+# Xcode
+*.xcodeproj/
+!*.xcodeproj/project.pbxproj
+xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+build/
+.build/
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# macOS
+.DS_Store
+
+# XcodeGen generates the project — keep it out of VCS
+Cliposaurus.xcodeproj/
+
+# DMG output
+dist/

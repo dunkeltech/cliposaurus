@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="eye">
+      <rect x="0" y="0" width="512" height="512" fill="#FFFFFF"/>
+      <!-- black = punched out (transparent) -->
+      <circle cx="424" cy="198" r="15" fill="#000000"/>
+    </mask>
+  </defs>
+  <!-- Monochrome T-Rex silhouette, sized for a small template image -->
+  <g fill="#000000" mask="url(#eye)">
+    <!-- tail -->
+    <path d="M150 372
+             C86 384 52 350 34 312
+             C86 332 120 330 160 316 Z"/>
+    <!-- body + head -->
+    <path d="M150 384
+             C138 268 168 190 262 176
+             C300 66 452 70 494 190
+             C470 176 452 176 440 182
+             C468 210 480 258 462 300
+             C448 336 410 350 372 344
+             C376 392 352 428 306 442
+             C356 452 384 462 384 462
+             L212 462
+             C212 462 168 462 148 448
+             C128 462 150 430 150 384 Z"/>
+    <!-- legs -->
+    <path d="M244 444 h50 v40 a25 25 0 0 1 -50 0 Z"/>
+    <path d="M318 440 h48 v42 a24 24 0 0 1 -48 0 Z"/>
+    <!-- back spikes -->
+    <path d="M244 176 l18 -26 l17 26 Z"/>
+    <path d="M280 166 l18 -28 l18 28 Z"/>
+  </g>
+</svg>

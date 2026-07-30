@@ -1,0 +1,136 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "🖼 Image" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "🖼 Bild" } }
+      }
+    },
+    "📄 File" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "📄 Datei" } }
+      }
+    },
+    "About Cliposaurus" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Über Cliposaurus" } }
+      }
+    },
+    "Accessibility permission required." : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Bedienungshilfen-Berechtigung erforderlich." } }
+      }
+    },
+    "Automatically sends ⌘V to the active app after selection. Otherwise the entry is only copied and you paste it yourself with ⌘V." : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Sendet nach der Auswahl automatisch ⌘V an die aktive App. Andernfalls wird der Eintrag nur kopiert und du fügst ihn selbst mit ⌘V ein." } }
+      }
+    },
+    "Entry %lld:" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Eintrag %lld:" } }
+      }
+    },
+    "Favorites don't count toward the limit and are never deleted automatically." : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Favoriten zählen nicht zur Obergrenze und werden nie automatisch gelöscht." } }
+      }
+    },
+    "General" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Allgemein" } }
+      }
+    },
+    "Grant…" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Freigeben…" } }
+      }
+    },
+    "History" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Verlauf" } }
+      }
+    },
+    "Hotkeys" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Tastenkürzel" } }
+      }
+    },
+    "In the overlay" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Im Overlay" } }
+      }
+    },
+    "Launch Cliposaurus at login" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Cliposaurus beim Login starten" } }
+      }
+    },
+    "Mark as favorite:" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Als Favorit markieren:" } }
+      }
+    },
+    "Maximum number of entries: %lld" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Maximale Anzahl Einträge: %lld" } }
+      }
+    },
+    "No entries" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Keine Einträge" } }
+      }
+    },
+    "Open / Close:" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Öffnen / Schließen:" } }
+      }
+    },
+    "Open Cliposaurus" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Cliposaurus öffnen" } }
+      }
+    },
+    "Overlay" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Overlay" } }
+      }
+    },
+    "Paste automatically after selection" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Nach Auswahl automatisch einfügen" } }
+      }
+    },
+    "Pasting" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Einfügen" } }
+      }
+    },
+    "Quick paste" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Schnellwahl" } }
+      }
+    },
+    "Quit Cliposaurus" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Cliposaurus beenden" } }
+      }
+    },
+    "Search clipboard…" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Zwischenablage durchsuchen…" } }
+      }
+    },
+    "Settings…" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Einstellungen…" } }
+      }
+    },
+    "Startup" : {
+      "localizations" : {
+        "de" : { "stringUnit" : { "state" : "translated", "value" : "Start" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}
