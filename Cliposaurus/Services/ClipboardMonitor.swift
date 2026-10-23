@@ -6,6 +6,9 @@
 import AppKit
 import SwiftData
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: "com.cliposaurus.app", category: "ClipboardMonitor")
 
 /// Watches the system clipboard by polling and stores new entries in SwiftData.
 ///
@@ -109,10 +112,14 @@ final class ClipboardMonitor {
             predicate: #Predicate { $0.contentHash == hash }
         )
         descriptor.fetchLimit = 1
-        if let existing = try? modelContext.fetch(descriptor).first {
-            existing.createdAt = .now
-            try? modelContext.save()
-            return
+        do {
+            if let existing = try modelContext.fetch(descriptor).first {
+                existing.createdAt = .now
+                try modelContext.save()
+                return
+            }
+        } catch {
+            logger.error("Failed to check duplicate or update existing item: \(error.localizedDescription)")
         }
 
         let item = ClipItem(
@@ -124,20 +131,28 @@ final class ClipboardMonitor {
         )
         modelContext.insert(item)
         enforceLimit()
-        try? modelContext.save()
+        do {
+            try modelContext.save()
+        } catch {
+            logger.error("Failed to save new clip item: \(error.localizedDescription)")
+        }
     }
 
     /// Deletes the oldest non-favorite entries when the limit is exceeded.
     private func enforceLimit() {
-        let limit = maxItems
+        let limit = max(1, maxItems)
         let descriptor = FetchDescriptor<ClipItem>(
             predicate: #Predicate { $0.isFavorite == false },
             sortBy: [SortDescriptor(\.createdAt, order: .reverse)]
         )
-        guard let nonFavorites = try? modelContext.fetch(descriptor),
-              nonFavorites.count > limit else { return }
-        for item in nonFavorites[limit...] {
-            modelContext.delete(item)
+        do {
+            let nonFavorites = try modelContext.fetch(descriptor)
+            guard nonFavorites.count > limit else { return }
+            for item in nonFavorites[limit...] {
+                modelContext.delete(item)
+            }
+        } catch {
+            logger.error("Failed to fetch non-favorites during enforceLimit: \(error.localizedDescription)")
         }
     }
 }

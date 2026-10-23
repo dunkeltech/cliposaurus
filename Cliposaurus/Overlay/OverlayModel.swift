@@ -5,6 +5,9 @@
 
 import SwiftUI
 import SwiftData
+import OSLog
+
+private let logger = Logger(subsystem: "com.cliposaurus.app", category: "OverlayModel")
 
 /// State and actions of the overlay. A single source of truth accessed by both the
 /// `OverlayView` and the global hotkey handlers.
@@ -38,7 +41,13 @@ final class OverlayModel: ObservableObject {
         let descriptor = FetchDescriptor<ClipItem>(
             sortBy: [SortDescriptor(\.createdAt, order: .reverse)]
         )
-        let all = (try? modelContext.fetch(descriptor)) ?? []
+        let all: [ClipItem]
+        do {
+            all = try modelContext.fetch(descriptor)
+        } catch {
+            logger.error("Failed to fetch clip items in reload: \(error.localizedDescription)")
+            all = []
+        }
 
         let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         let filtered: [ClipItem]
@@ -87,7 +96,11 @@ final class OverlayModel: ObservableObject {
         guard isVisible, items.indices.contains(selectionIndex) else { return }
         let item = items[selectionIndex]
         item.isFavorite.toggle()
-        try? modelContext.save()
+        do {
+            try modelContext.save()
+        } catch {
+            logger.error("Failed to save favorite status: \(error.localizedDescription)")
+        }
         reload()
     }
 }

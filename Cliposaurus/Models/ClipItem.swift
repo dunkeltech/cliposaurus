@@ -23,7 +23,7 @@ enum ClipKind: Int, Codable {
 @Model
 final class ClipItem {
     /// Stable identifier (useful for quick paste / selection).
-    @Attribute(.unique) var id: UUID
+    var id: UUID
     /// Time of the last copy. Updated on duplicates (→ moves back to the top).
     var createdAt: Date
     /// Favorite? Favorites are pinned to the very top permanently.

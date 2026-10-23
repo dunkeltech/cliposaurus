@@ -6,6 +6,9 @@
 import SwiftUI
 import SwiftData
 import KeyboardShortcuts
+import OSLog
+
+private let logger = Logger(subsystem: "com.cliposaurus.app", category: "AppCoordinator")
 
 /// Central wiring: SwiftData container, clipboard monitor, overlay and global hotkeys.
 @MainActor
@@ -16,8 +19,17 @@ final class AppCoordinator: ObservableObject {
 
     init() {
         do {
-            container = try ModelContainer(for: ClipItem.self)
+            let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+            let bundleID = Bundle.main.bundleIdentifier ?? "com.cliposaurus.app"
+            let appDir = appSupport.appendingPathComponent(bundleID, isDirectory: true)
+            try FileManager.default.createDirectory(at: appDir, withIntermediateDirectories: true)
+
+            let storeURL = appDir.appendingPathComponent("Cliposaurus.store")
+            let configuration = ModelConfiguration(url: storeURL)
+            container = try ModelContainer(for: ClipItem.self, configurations: configuration)
+            logger.info("SwiftData initialized with store at: \(storeURL.path)")
         } catch {
+            logger.critical("Failed to create SwiftData container: \(error.localizedDescription)")
             fatalError("Failed to create SwiftData container: \(error)")
         }
 
